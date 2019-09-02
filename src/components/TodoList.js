@@ -1,17 +1,19 @@
 import React from 'react'
 
-class TodoInput extends React.Component {
+class TodoList extends React.Component {
 
     render() {
         const { todoList } = this.props;
         return (
             <ul>
                 {todoList.map((listItem) => {      
-                    return <li>{listItem.value}</li>
+                    return <div>
+                    <li>{listItem.value}</li><input type="checkbox" checked={listItem.completed}></input>
+                    </div>
                 }
                 )}
             </ul>
         )
     }
 }
-export default TodoInput;
+export default TodoList;
