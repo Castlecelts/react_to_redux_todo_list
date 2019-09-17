@@ -40,3 +40,5 @@ class TodoInput extends React.Component {
     }
 }
 export default TodoInput;
+
+// connect this component with react-redux
