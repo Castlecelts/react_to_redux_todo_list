@@ -2,6 +2,7 @@ import React from 'react'
 
 import TodoInput from './TodoInput';
 import TodoList from './TodoList';
+import update from 'immutability-helper';
 
 // TRY TO REFACTOR TO REDUX
 // HOOKS 
@@ -28,10 +29,12 @@ class TodoContainer extends React.Component {
     onCheckListItem(event){
         console.log("event:", event)
         console.log("state:", this.state)
-        const currentTodoList = [...this.state.todoList]
-        const selectedItem = currentTodoList.findIndex( x => x.id == event)
-        console.log("test", selectedItem)
-        // this.setState( { todoList: [...this.state.todoList, {value: event, completed: true}] } )
+        const { todoList } = this.state;
+        const selectedItem = todoList.findIndex( x => x.id == event)
+        const newTodoList = update(todoList, {[selectedItem]: {$merge: {completed: !todoList[selectedItem].completed} }})
+
+
+        this.setState( { todoList: newTodoList } )
     }
     render() {
         return (
