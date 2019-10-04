@@ -4,16 +4,21 @@
 }}
  action: { type: 'ACTION_TYPE', value: 'sdufhuasdf' }
 */
-export default (state = [], action) => {
-  //check the action type
- // if action type is 'ADD_TODO'
- // add a new item to the list 
- // return the new state
- 
- if (action.type === 'ADD_TODO') {
-   const { value } = action
-   
-    // {id: Math.random(), value: listItem, completed: false}] }
-    return [...state, { id: Math.random(), value, completed: false }]
- }
+export default (state = [
+  {id:1, value: "buy shopping", completed: false},
+  {id:2, value: "second", completed: false},
+  {id:3, value: "phone home", completed: true},
+], action) => {
+    //check the action type
+    // if action type is 'ADD_TODO' - DONE
+    // add a new item to the list -DONE
+    // return the new state -DONE
+
+    // change data structure to {} instead of []
+
+    if (action.type === 'ADD_TODO') {
+        const { value } = action
+        return [...state, { id: Math.random(), value, completed: false }]
+    }
+    return state;
 }

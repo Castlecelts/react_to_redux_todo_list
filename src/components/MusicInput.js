@@ -1,12 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
 
-class TodoInput extends React.Component {
-    // add local state - DONE
-    // track the input value in the local state - DONE
-    // when input key pressed is ENTER KEY call the onChange for the parent - DONE
-    // clean the input field - DONE
-
+class MusicInput extends React.Component {
 
     constructor(props) {
         super(props);
@@ -23,9 +18,9 @@ class TodoInput extends React.Component {
 
     handlePress(keyCode) {
         const ENTER_KEY = 13;
-        const { onNewTodoListItem } = this.props;
+        const { onNewMusicListItem } = this.props;
         if (keyCode === ENTER_KEY) {
-            onNewTodoListItem(this.state.value)
+            onNewMusicListItem(this.state.value)
             this.handleClearInput()
         }
     }
@@ -40,8 +35,6 @@ class TodoInput extends React.Component {
     }
 }
 
-const mapStateToProps = state => ({ todos: state.todos });
+const mapStateToProps = state => ({ musics: state.musics });
 
-export default connect(mapStateToProps)(TodoInput);
-
-// connect this component with react-redux
+export default connect(mapStateToProps)(MusicInput);

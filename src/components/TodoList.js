@@ -2,7 +2,6 @@ import React from 'react'
 
 class TodoList extends React.Component {
 
-
     render() {
         const { todoList } = this.props;
 
@@ -18,9 +17,8 @@ class TodoList extends React.Component {
                             onClick={(e) => this.props.onCheckListItem(e.target.id)}
                         ></input>
                     </div>
+                })
                 }
-
-                )}
             </ul>
         )
     }
