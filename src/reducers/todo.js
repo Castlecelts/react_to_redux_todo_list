@@ -4,6 +4,8 @@
 }}
  action: { type: 'ACTION_TYPE', value: 'sdufhuasdf' }
 */
+import { ADD_TODO } from '../action-names';
+
 export default (state = [
   {id:1, value: "buy shopping", completed: false},
   {id:2, value: "second", completed: false},
@@ -16,9 +18,10 @@ export default (state = [
 
     // change data structure to {} instead of []
 
-    if (action.type === 'ADD_TODO') {
+    if (action.type === ADD_TODO) {
         const { value } = action
         return [...state, { id: Math.random(), value, completed: false }]
     }
     return state;
+
 }

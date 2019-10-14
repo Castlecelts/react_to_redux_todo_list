@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
+import { addTodo as addTodoAction} from '../actions/todo';
 
 class TodoInput extends React.Component {
     // add local state - DONE
@@ -23,9 +24,8 @@ class TodoInput extends React.Component {
 
     handlePress(keyCode) {
         const ENTER_KEY = 13;
-        const { onNewTodoListItem } = this.props;
         if (keyCode === ENTER_KEY) {
-            onNewTodoListItem(this.state.value)
+            this.props.addTodo(this.state.value)
             this.handleClearInput()
         }
     }
@@ -42,6 +42,14 @@ class TodoInput extends React.Component {
 
 const mapStateToProps = state => ({ todos: state.todos });
 
-export default connect(mapStateToProps)(TodoInput);
+const mapDispatchToProps = {
+    addTodo: addTodoAction
+}
 
-// connect this component with react-redux
+// function addTodo(value){
+//  return { type: 'ADD_TODO', value }
+// }
+
+export default connect(mapStateToProps, mapDispatchToProps)(TodoInput);
+
+// connect this component with react-redux - DONE

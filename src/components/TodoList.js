@@ -1,13 +1,14 @@
 import React from 'react'
+import { connect } from 'react-redux';
 
 class TodoList extends React.Component {
 
     render() {
-        const { todoList } = this.props;
+        const { todos } = this.props;
 
         return (
             <ul>
-                {todoList.map((listItem, index) => {
+                {todos.map((listItem, index) => {
                     return <div>
                         <li key={index} id={listItem.id}>{listItem.value}</li>
                         <input
@@ -23,4 +24,7 @@ class TodoList extends React.Component {
         )
     }
 }
-export default TodoList;
+
+const mapStateToProps = state => ({ todos: state.todos });
+
+export default connect(mapStateToProps)(TodoList);

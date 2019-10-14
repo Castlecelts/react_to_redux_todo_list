@@ -1,19 +1,20 @@
 import React from 'react'
+import { connect } from 'react-redux';
 
 class MusicList extends React.Component {
 
     render() {
-        const { musicList } = this.props;
+        const { musics } = this.props;
 
         return (
             <ul>
-                {musicList.map((musicList, index) => {
+                {musics.map((music, index) => {
                     return <div>
-                        <li key={index} id={musicList.id}>{musicList.value}</li>
+                        <li key={index} id={music.id}>{music.value}</li>
                         <input
                             type="checkbox"
-                            id={musicList.id}
-                            owned={musicList.completed}
+                            id={music.id}
+                            owned={music.completed}
                             onClick={(e) => this.props.onCheckMusicList(e.target.id)}
                         ></input>
                     </div>
@@ -23,4 +24,7 @@ class MusicList extends React.Component {
         )
     }
 }
-export default MusicList;
+
+const mapStateToProps = state => ({ musics: state.musics });
+
+export default connect(mapStateToProps)(MusicList);
