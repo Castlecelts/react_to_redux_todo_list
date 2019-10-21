@@ -1,5 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
+import { onCheckListItem as onCheckListItemAction} from '../actions/todo';
+
 
 class TodoList extends React.Component {
 
@@ -27,4 +29,8 @@ class TodoList extends React.Component {
 
 const mapStateToProps = state => ({ todos: state.todos });
 
-export default connect(mapStateToProps)(TodoList);
+const mapDispatchToProps = {
+    onCheckListItem: onCheckListItemAction
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList);

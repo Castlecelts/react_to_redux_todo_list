@@ -17,14 +17,14 @@ class TodoContainer extends React.Component {
         super(props);
     }
 
-    onCheckListItem(event) {
-        // const { todoList } = this.state;
-        // const selectedItem = todoList.findIndex( x => x.id === event)
-        // const newTodoList = update(todoList, {[selectedItem]: {$merge: {completed: !todoList[selectedItem].completed} }})
+    // onCheckListItem(event) {
+    //     // const { todoList } = this.state;
+    //     // const selectedItem = todoList.findIndex( x => x.id === event)
+    //     // const newTodoList = update(todoList, {[selectedItem]: {$merge: {completed: !todoList[selectedItem].completed} }})
 
 
-        // this.setState( { todoList: newTodoList } )
-    }
+    //     // this.setState( { todoList: newTodoList } )
+    // }
 
     onNewMusicListItem(listItem) {
 
@@ -43,8 +43,7 @@ class TodoContainer extends React.Component {
                     onNewTodoListItem={(listItem) => this.onNewTodoListItem(listItem)}
                 />
                 <TodoList
-                    onCheckListItem={(listItem) => this.onCheckListItem(listItem)
-                    }
+                    // onCheckListItem={(listItem) => this.onCheckListItem(listItem)}
                 />
                 <h1>Music List</h1>
                 <MusicInput

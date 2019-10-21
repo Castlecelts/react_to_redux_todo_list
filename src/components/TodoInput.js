@@ -43,7 +43,7 @@ class TodoInput extends React.Component {
 const mapStateToProps = state => ({ todos: state.todos });
 
 const mapDispatchToProps = {
-    addTodo: addTodoAction
+    addTodo: addTodoAction,
 }
 
 // function addTodo(value){

@@ -4,24 +4,41 @@
 }}
  action: { type: 'ACTION_TYPE', value: 'sdufhuasdf' }
 */
-import { ADD_TODO } from '../action-names';
+import { ADD_TODO, CHECK_LIST_ITEM} from '../action-names';
+import update from 'immutability-helper';
 
 export default (state = [
-  {id:1, value: "buy shopping", completed: false},
-  {id:2, value: "second", completed: false},
-  {id:3, value: "phone home", completed: true},
+  {id:Math.random().toString(36).substring(7), value: "buy shopping", completed: false},
+  {id:Math.random().toString(36).substring(7), value: "second", completed: false},
+  {id:Math.random().toString(36).substring(7), value: "phone home", completed: true},
 ], action) => {
-    //check the action type
-    // if action type is 'ADD_TODO' - DONE
-    // add a new item to the list -DONE
-    // return the new state -DONE
 
     // change data structure to {} instead of []
 
     if (action.type === ADD_TODO) {
         const { value } = action
-        return [...state, { id: Math.random(), value, completed: false }]
+        return [...state, { id: Math.random().toString(36).substring(7), value, completed: false }]
     }
+
+    if (action.type === CHECK_LIST_ITEM){
+      const { value } = action
+      console.log("selected value:", value)
+
+      const selectedItem = state.findIndex( x => x.id === value)
+      console.log("selected Item:", selectedItem)
+      return update(state, {[selectedItem]: {$merge: {completed: !state[selectedItem].completed} }})
+      // return state
+    }
+
+
+  //   onCheckListItem(event) {
+  //     // const { todoList } = this.state;
+  //     // const selectedItem = todoList.findIndex( x => x.id === event)
+  //     // const newTodoList = update(todoList, {[selectedItem]: {$merge: {completed: !todoList[selectedItem].completed} }})
+
+
+  //     // this.setState( { todoList: newTodoList } )
+  // }
     return state;
 
 }
