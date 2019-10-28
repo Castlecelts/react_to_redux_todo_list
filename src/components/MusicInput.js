@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
+import { addMusic as addMusicAction} from '../actions/music';
 
 class MusicInput extends React.Component {
 
@@ -18,9 +19,9 @@ class MusicInput extends React.Component {
 
     handlePress(keyCode) {
         const ENTER_KEY = 13;
-        const { onNewMusicListItem } = this.props;
         if (keyCode === ENTER_KEY) {
-            onNewMusicListItem(this.state.value)
+            this.props.addMusic(this.state.value)
+            console.log("I'm here", this.state)
             this.handleClearInput()
         }
     }
@@ -37,4 +38,8 @@ class MusicInput extends React.Component {
 
 const mapStateToProps = state => ({ musics: state.musics });
 
-export default connect(mapStateToProps)(MusicInput);
+const mapDispatchToProps = {
+    addMusic: addMusicAction,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MusicInput);

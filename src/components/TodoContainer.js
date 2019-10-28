@@ -4,10 +4,6 @@ import TodoInput from './TodoInput';
 import TodoList from './TodoList';
 import MusicInput from './MusicInput';
 import MusicList from './MusicList';
-import update from 'immutability-helper';
-
-import { connect } from 'react-redux';
-
 
 // TRY TO REFACTOR TO REDUX
 // HOOKS 
@@ -47,7 +43,7 @@ class TodoContainer extends React.Component {
                 />
                 <h1>Music List</h1>
                 <MusicInput
-                    onNewMusicListItem={(musicItem) => this.onNewMusicListItem(musicItem)}
+                    // onNewMusicListItem={(musicItem) => this.onNewMusicListItem(musicItem)}
                 />
                 <MusicList
                     onCheckListItem={(musicItem) => this.onCheckListItem(musicItem)

@@ -30,15 +30,6 @@ export default (state = [
       // return state
     }
 
-
-  //   onCheckListItem(event) {
-  //     // const { todoList } = this.state;
-  //     // const selectedItem = todoList.findIndex( x => x.id === event)
-  //     // const newTodoList = update(todoList, {[selectedItem]: {$merge: {completed: !todoList[selectedItem].completed} }})
-
-
-  //     // this.setState( { todoList: newTodoList } )
-  // }
     return state;
 
 }
