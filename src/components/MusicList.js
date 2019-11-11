@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
+import { onCheckMusicListItem as onCheckMusicListItemAction} from '../actions/music';
 
 class MusicList extends React.Component {
 
@@ -15,7 +16,7 @@ class MusicList extends React.Component {
                             type="checkbox"
                             id={music.id}
                             owned={music.completed}
-                            onClick={(e) => this.props.onCheckMusicList(e.target.id)}
+                            onClick={(e) => this.props.onCheckMusicListItem(e.target.id)}
                         ></input>
                     </div>
                 })
@@ -27,4 +28,8 @@ class MusicList extends React.Component {
 
 const mapStateToProps = state => ({ musics: state.musics });
 
-export default connect(mapStateToProps)(MusicList);
+const mapDispatchToProps = {
+    onCheckMusicListItem: onCheckMusicListItemAction
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MusicList);
