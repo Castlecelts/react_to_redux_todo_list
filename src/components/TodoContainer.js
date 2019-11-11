@@ -9,9 +9,9 @@ import MusicList from './MusicList';
 // HOOKS 
 
 class TodoContainer extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+    // constructor(props) {
+    //     super(props);
+    // }
 
     // onCheckListItem(event) {
     //     // const { todoList } = this.state;
@@ -36,7 +36,7 @@ class TodoContainer extends React.Component {
             <>
                 <h1>Todo List</h1>
                 <TodoInput
-                    onNewTodoListItem={(listItem) => this.onNewTodoListItem(listItem)}
+                    // onNewTodoListItem={(listItem) => this.onNewTodoListItem(listItem)}
                 />
                 <TodoList
                     // onCheckListItem={(listItem) => this.onCheckListItem(listItem)}
@@ -46,8 +46,7 @@ class TodoContainer extends React.Component {
                     // onNewMusicListItem={(musicItem) => this.onNewMusicListItem(musicItem)}
                 />
                 <MusicList
-                    onCheckListItem={(musicItem) => this.onCheckListItem(musicItem)
-                    }
+                    // onCheckListItem={(musicItem) => this.onCheckListItem(musicItem)}
                 />
             </>
         )
