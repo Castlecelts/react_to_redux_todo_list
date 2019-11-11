@@ -1,55 +1,33 @@
-import React from 'react'
-import { connect } from 'react-redux';
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux';
 import { addTodo as addTodoAction} from '../actions/todo';
 
-class TodoInput extends React.Component {
-    // add local state - DONE
-    // track the input value in the local state - DONE
-    // when input key pressed is ENTER KEY call the onChange for the parent - DONE
-    // clean the input field - DONE
+const TodoInput= () => {
 
+    const dispatch = useDispatch();
+    const [inputValue, setInputValue] = useState('hello');
 
-    constructor(props) {
-        super(props);
-        this.state = { value: '' };
+    const handleClearInput = () => {
+        setInputValue('');
     }
 
-    handleChange(value) {
-        this.setState({ value });
-    }
-
-    handleClearInput() {
-        this.setState({ value: '' });
-    }
-
-    handlePress(keyCode) {
+    const handlePress = (keyCode) => {
         const ENTER_KEY = 13;
         if (keyCode === ENTER_KEY) {
-            this.props.addTodo(this.state.value)
-            this.handleClearInput()
+            dispatch(addTodoAction(inputValue))
+            handleClearInput()
         }
     }
-    render() {
-        return (
-            <input
-                value={this.state.value}
-                onChange={(e) => this.handleChange(e.target.value)}
-                onKeyDown={(e) => this.handlePress(e.keyCode)}>
-            </input>
-        )
-    }
+    return (
+        <input
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            onKeyDown={(e) => handlePress(e.keyCode)}
+        />
+    )
 }
 
-const mapStateToProps = state => ({ todos: state.todos });
-
-const mapDispatchToProps = {
-    addTodo: addTodoAction,
-}
-
-// function addTodo(value){
-//  return { type: 'ADD_TODO', value }
-// }
-
-export default connect(mapStateToProps, mapDispatchToProps)(TodoInput);
+export default TodoInput;
 
 // connect this component with react-redux - DONE
+// refactor this component with hooks & react-redux hooks - DONE
