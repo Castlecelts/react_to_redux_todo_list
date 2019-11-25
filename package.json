@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/node": "^7.7.4",
+    "@babel/register": "^7.7.4",
     "immutability-helper": "^3.0.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
